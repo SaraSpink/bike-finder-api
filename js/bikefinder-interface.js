@@ -23,13 +23,15 @@ $(document).ready(function() {
     $('#location').val("");
 
     $.get(`https://bikeindex.org/api/v3/search?page=1&per_page=25&location=${city}&distance=10&stolenness=proximity`).then(function(response) {
-      debugger;
+
       response.bikes.forEach(function(bike){
 
+        // $('#manufacturer').append("<li>" + `${bike.thumb}` + "</li>");
         $('#manufacturer').append("<li>" + `${bike.manufacturer_name}` + "</li>");
         $('#frame').append("<li>" + `${bike.frame_model}` + "</li>");
         $('#year').append("<li>" + `${bike.year}.` + "</li>");
         $('#color').append("<li>" + `${bike.frame_colors[0]}.` + "</li>");
+
       })
     }).fail(function(error) {
          $('.showErrors').text(`There was an error processing your request: ${error.responseText}. Please try again.`);
