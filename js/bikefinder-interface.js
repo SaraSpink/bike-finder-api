@@ -16,16 +16,19 @@ let apiKey = require('./../.env').apiKey;
 
 
 $(document).ready(function() {
-  $('#bikeLocation').click(function() {
+  $('#search').click(function() {
+
     let city = $('#location').val();
+    console.log(city);
     $('#location').val("");
+    console.log(city);
     $.get(`https://bikeindex.org:443/api/v3/search?page=1&per_page=25&location=${city}&distance=10&stolenness=proximity`).then(function(response) {
       response.bikes.forEach(function(bike){
-        $('.showManufacturer').append("</li>" + `${bike.manufacturer_name}` + "</li>");
-        // $('.showColor').text(`The color is ${bike.frame_colors}.`);
-
+        $('#manufacturer').append("<li>" + `${bike.manufacturer_name}` + "</li>");
+        $('#frame').append("<li>" + `${bike.frame_model}` + "</li>");
+        $('#year').append("<li>" + `${bike.year}.` + "</li>");
+        $('#color').append("<li>" + `${bike.frame_colors[0]}.` + "</li>");
       })
-
     }).fail(function(error) {
          $('.showErrors').text(`There was an error processing your request: ${error.responseText}. Please try again.`);
     });

@@ -9,13 +9,43 @@
   </head>
   <body>
     <div class="container">
-       <h1>Get Stolen Bikes From Anywhere!</h1>
-       <label for="location">Enter a location:</label>
-       <input id="location" type="text">
-       <button class="btn-success" id="bikeLocation">Search</button>
-       <div class="errors"></div>
-       <div><ul class="showManufacturer">The Manufacturer is: </ul></div>
-       <div class="showColor"></div>
-     </div>
+      <div class="jumbotron">
+        <h1>Bike Tracker</h1>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+            <label for="location">Enter a location:</label>
+            <input id="location" type="text">
+            <button class="btn btn-primary" id="search">Search</button>
+        </div>
+      </div><br>
+      <div class="errors"></div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="card">
+            <h3>Manufacturer:</h3>
+            <ol id="manufacturer"></ol>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <h3>Frame:</h3>
+            <ol id="frame"></ol>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <h3>Year:</h3>
+            <ol id="year"></ol>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <h3>Color:</h3>
+            <ol id="color"></ol>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
