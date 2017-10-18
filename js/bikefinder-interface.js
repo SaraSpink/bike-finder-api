@@ -19,11 +19,13 @@ $(document).ready(function() {
   $('#search').click(function() {
 
     let city = $('#location').val();
-    console.log(city);
+
     $('#location').val("");
-    console.log(city);
-    $.get(`https://bikeindex.org:443/api/v3/search?page=1&per_page=25&location=${city}&distance=10&stolenness=proximity`).then(function(response) {
+
+    $.get(`https://bikeindex.org/api/v3/search?page=1&per_page=25&location=${city}&distance=10&stolenness=proximity`).then(function(response) {
+      debugger;
       response.bikes.forEach(function(bike){
+
         $('#manufacturer').append("<li>" + `${bike.manufacturer_name}` + "</li>");
         $('#frame').append("<li>" + `${bike.frame_model}` + "</li>");
         $('#year').append("<li>" + `${bike.year}.` + "</li>");
