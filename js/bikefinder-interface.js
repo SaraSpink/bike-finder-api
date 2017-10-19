@@ -9,16 +9,15 @@ $(document).ready(function() {
     $('#location').val("");
 
     let finder = new BikeFinder(apiKey);
-
     try {
       finder.search(city, function(bikes) {
         bikes.forEach(function(bike){
-
           // $('#manufacturer').append("<li>" + `${bike.thumb}` + "</li>");
           $('#manufacturer').append("<li>" + `${bike.manufacturer_name}` + "</li>");
           $('#frame').append("<li>" + `${bike.frame_model}` + "</li>");
           $('#year').append("<li>" + `${bike.year}.` + "</li>");
           $('#color').append("<li>" + `${bike.frame_colors[0]}.` + "</li>");
+
         });
       });
     } catch(err) {
@@ -26,32 +25,25 @@ $(document).ready(function() {
     }
 
     // google bike color chart
-    finder.generateData(bike) {
+    function drawChart() {
 
       let data = google.visualization.arrayToDataTable([
-        ['Bike Color', '# of Bikes'],
-        ['Black', bike.black_bikes],
-        ['Red', bike.red_bikes],
-        ['Yellow or Gold', bike.yellow_bikes],
-        ['Blue', bike.blue_bikes],
-        ['Green', bike.green_bikes],
-        ['Silver or Gray', bike.silver_bikes],
-        ['Orange', bike.orange_bikes],
-        ['White', bike.white_bikes],
-        ['Other', bike.other_bikes]
+        ['Bike', 'Color'],
+        ['Silver',   11 ],
+        ['Red',     11],
+        ['Blue',  2],
       ]);
 
       let options = {
-        // height: 400,
-        // width: 500,
+        height: 400,
+        width: 500,
         title: 'Stolen bikes by color',
         pieHole: 0.4,
-        colors:['#010102', '#E50000', '#FFFF32', '#3838CC', '#328432', '#666666', '#FFAE19', '#E5E5E5', '#4C004C']
+        colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']
       };
 
       let chart = new google.visualization.PieChart(document.getElementById('colorDonut')); 			chart.draw(data, options);
-
-      drawChart(data, options);
-    };
+    }
+    drawChart();
   });
 });
