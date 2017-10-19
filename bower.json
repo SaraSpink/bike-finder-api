@@ -3,17 +3,20 @@
   "description": "",
   "main": "gulpfule.js",
   "license": "ISC",
-  "homepage": "",
+  "homepage": "https://github.com/mostriki/bike-finder-api",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
-    ],
-    "dependencies": {
+  ],
+  "dependencies": {
     "jquery": "^3.2.1",
     "moment": "^2.19.1",
     "bootstrap": "v4.0.0-beta"
-  }
+  },
+  "authors": [
+    "Riki Montgomery <mostriki820@gmail.com>"
+  ]
 }
